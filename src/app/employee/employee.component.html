@@ -1,0 +1,297 @@
+<div style="background-color: #454545; height: 60px">
+  <h1 style="color: azure; text-align: center; padding-top: 15px">
+    Employee Registration Form
+  </h1>
+</div>
+
+<div class="my-account sec-padding">
+  <div class="container">
+    <mat-card
+      fxLayout="row"
+      fxLayout.lt-sm="column"
+      fxLayoutAlign="start start"
+      style="margin-top: 25px"
+    >
+      <div
+        class="login-wrapper pr-50"
+        fxFlex="100"
+        fxFlex.gt-md="50"
+        fxFlex.md="50"
+      >
+        <form fxLayout="row wrap" (ngSubmit)="saveData()">
+          <div>
+            <mat-form-field class="w-100">
+              <input
+                matInput
+                placeholder="Employee Name"
+                #name="ngModel"
+                [(ngModel)]="form.name"
+                name="name"
+                value="{{ form.name }}"
+                required
+                minlength="3"
+              />
+            </mat-form-field>
+            <!--display error message section-->
+            <div *ngIf="name.errors">
+              <div *ngIf="name.touched && name.errors.minlength">
+                <p style="color: red">Please enter minimum 3 characters</p>
+              </div>
+              <div *ngIf="name.touched && name.errors.required">
+                <p style="color: red">This Field is required</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            fxFlex="100"
+            fxFlex.gt-sm="100"
+            class="px-1"
+            ngClass.sm="mt-1"
+            ngClass.xs="mt-1"
+          >
+            <mat-form-field class="w-100">
+              <input
+                matInput
+                #profile="ngModel"
+                placeholder="Designation"
+                [(ngModel)]="form.designation"
+                name="designation"
+                value="{{ form.designation }}"
+                minlength="3"
+                required
+              />
+            </mat-form-field>
+            <!--display error message section-->
+            <div *ngIf="profile.errors">
+              <div *ngIf="profile.touched && profile.errors.minlength">
+                <p style="color: red">Please enter minimum 3 characters</p>
+              </div>
+              <div *ngIf="profile.touched && profile.errors.required">
+                <p style="color: red">This field is required</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            fxFlex="100"
+            fxFlex.gt-sm="100"
+            class="px-1"
+            ngClass.sm="mt-1"
+            ngClass.xs="mt-1"
+          >
+            <mat-form-field class="w-100">
+              <input
+                matInput
+                placeholder="Salary"
+                #income="ngModel"
+                [(ngModel)]="form.salary"
+                name="salary"
+                value="{{ form.salary }}"
+                minlength="4"
+                required
+              />
+            </mat-form-field>
+            <!--display error message section-->
+            <div *ngIf="income.errors">
+              <div *ngIf="income.touched && income.errors.minlength">
+                <p style="color: red">Please enter minimum 4 numbers</p>
+              </div>
+              <div *ngIf="income.touched && income.errors.required">
+                <p style="color: red">This field is required</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            fxFlex="100"
+            fxFlex.gt-sm="100"
+            class="px-1"
+            ngClass.sm="mt-1"
+            ngClass.xs="mt-1"
+          >
+            <mat-form-field class="w-100">
+              <input
+                matInput
+                placeholder="Email Id"
+                #email="ngModel"
+                [(ngModel)]="form.email"
+                name="email"
+                value="{{ form.email }}"
+                type="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required
+              />
+            </mat-form-field>
+            <!--display error message section-->
+            <div *ngIf="email.errors">
+              <div *ngIf="email.touched && email.errors.pattern">
+                <p style="color: red">Please enter valid email address</p>
+              </div>
+              <div *ngIf="email.touched && email.errors.required">
+                <p style="color: red">This field is required</p>
+              </div>
+            </div>
+          </div>
+          <div
+            fxFlex="100"
+            fxFlex.gt-sm="100"
+            class="px-1"
+            ngClass.sm="mt-1"
+            ngClass.xs="mt-1"
+          >
+            <mat-form-field class="w-100">
+              <input
+                matInput
+                placeholder="Mobile Number"
+                #number="ngModel"
+                [(ngModel)]="form.phone"
+                name="phone"
+                value="{{ form.phone }}"
+                pattern="[0-9]{10}"
+                required
+              />
+            </mat-form-field>
+            <!--display error message section-->
+            <div *ngIf="number.errors">
+              <div *ngIf="number.touched && number.errors.pattern">
+                <p style="color: red">Please enter valid mobile number</p>
+              </div>
+              <div *ngIf="number.touched && number.errors.required">
+                <p style="color: red">This field is required</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            fxFlex="100"
+            fxFlex.gt-sm="100"
+            class="px-1"
+            ngClass.sm="mt-1"
+            ngClass.xs="mt-1"
+          >
+            <div class="w-100">
+              <mat-form-field class="w-100">
+                <input
+                  matInput
+                  placeholder="Qualification"
+                  #education="ngModel"
+                  [(ngModel)]="form.qualification"
+                  name="qualification"
+                  value="{{ form.qualification }}"
+                  required
+                />
+              </mat-form-field>
+              <!--display error message section-->
+              <div *ngIf="education.errors">
+                <div *ngIf="education.touched && education.errors.required">
+                  <p style="color: red">This field is required</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            fxFlex="100"
+            fxFlex.gt-sm="100"
+            class="px-1"
+            ngClass.sm="mt-1"
+            ngClass.xs="mt-1"
+          >
+            <div class="w-100">
+              <mat-form-field class="w-100">
+                <input
+                  matInput
+                  placeholder="Manager"
+                  #manager="ngModel"
+                  [(ngModel)]="form.manager"
+                  name="manager"
+                  value="{{ form.manager }}"
+                  required
+                />
+              </mat-form-field>
+              <!--display error message section-->
+              <div *ngIf="manager.errors">
+                <div *ngIf="manager.touched && manager.errors.required">
+                  <p style="color: red">This field is required</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          &nbsp;&nbsp; &nbsp;&nbsp;
+          <div>
+            <button
+              mat-raised-button
+              color="accent"
+              value="Submit"
+              *ngIf="form.id == null"
+            >
+              Submit
+            </button>
+            <button
+              mat-raised-button
+              color="accent"
+              value="Update"
+              *ngIf="form.id != null"
+            >
+              Update
+            </button>
+
+            <button mat-button (click)="clearData()">Reset</button>
+          </div>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<hr style="margin-top: 30px; border-top: 5px solid black" />
+<div
+  style="
+    background-color: #454545;
+    height: 60px;
+    margin-top: 30px;
+    margin-bottom: 50%;
+  "
+>
+  <h1 style="color: azure; text-align: center; padding-top: 15px">
+    Registerd Employees Form
+  </h1>
+
+  <div style="margin-top: 20px">
+    <table border="1px" id="customers">
+      <tr>
+        <td>ID</td>
+        <td>Name of Employee</td>
+        <td>Designation</td>
+        <td>Salary</td>
+        <td>Email</td>
+        <td>Mobile</td>
+        <td>Qualification</td>
+        <td>Manager</td>
+      </tr>
+
+      <tr *ngFor="let address of list; index as i">
+        <th scope="row">
+          {{ i + 1 }}
+        </th>
+        <td>{{ address.name }}</td>
+        <td>{{ address.designation }}</td>
+        <td>{{ address.salary }}</td>
+        <td>{{ address.email }}</td>
+        <td>{{ address.phone }}</td>
+        <td>{{ address.qualification }}</td>
+        <td>{{ address.manager }}</td>
+        <td style="text-align: center">
+          <button mat-raised-button color="Basic" (click)="editData(address)">
+            Edit
+          </button>
+          &nbsp; &nbsp; &nbsp;
+          <button mat-raised-button color="warn" (click)="deleteData(address)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<button type="submit" (click)="helo()">hello</button>
