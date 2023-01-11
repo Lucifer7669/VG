@@ -24,8 +24,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { EmployeeComponent } from './employee/employee.component';
 import { DataService } from './data.service';
 import { MatMenuModule } from '@angular/material/menu';
+import { VedantComponent } from './vedant/vedant.component';
 @NgModule({
-  declarations: [AppComponent, EmployeeComponent],
+  declarations: [AppComponent, EmployeeComponent, VedantComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
